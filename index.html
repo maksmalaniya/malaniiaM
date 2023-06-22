@@ -24,7 +24,7 @@ Hopefully, it won't be for long`)
         let num1 = prompt('What is your first number?');
         let operation = prompt('What do you want to do with it?');
         let num2 = prompt('What is your second number?');
-        if(typeof(+num1) === 'number' && typeof(+num2) === 'number') {
+        if(typeof(+num1) === 'number' && typeof(+num2) === 'number' && +num1 == num1 && +num2 == num2) {
             if(operation == '+') {
                 alert (`${num1} + ${num2} = ${+num1 + +num2}`)
             } else if (operation == '-') {
@@ -33,6 +33,8 @@ Hopefully, it won't be for long`)
                 alert (`${num1} * ${num2} = ${+num1 * +num2}`)
             } else if (operation == '/') {
                 alert (`${num1} / ${num2} = ${+num1 / +num2}`)
+            } else {
+                alert("Write it correctly!");
             }
         } else {
             alert("Write it correctly!");
