@@ -8,21 +8,86 @@
 </head>
 <body>
     <script>
-        let birthDate = prompt ('В якому році Ви народилися?'),
-            placeOfLeaving = prompt ('В якому місті Ви живете?'),
-            favouriteSport = prompt ('Який Ваш улюблений спорт?');
-
         let messageYear, messagePlace, messageSport;
 
-        function getResponceForYear (){
-            if(birthDate) {
-                
+        let birthDate = prompt ('В якому році Ви народилися?');
+
+        if (birthDate) {
+            getResponceForYear (birthDate);
+        } else {
+            alert(`Шкода, що Ви не захотіли ввести свшй рік народження.`);
+        };
+
+        let placeOfLeaving = prompt ('В якому місті Ви живете?');
+
+        if (placeOfLeaving) {
+            getResponceForCIty (placeOfLeaving);
+        } else {
+            alert(`Шкода, що Ви не захотіли ввести місто в якому живете.`);
+        };
+
+
+        let favouriteSport = prompt ('Який Ваш улюблений спорт?');
+
+        if (favouriteSport) {
+            getResponceForSport (favouriteSport);
+        } else {
+            alert(`Шкода, що Ви не захотіли ввести Ваш улюблений вид спорту.`);
+        };
+
+        function getResponceForYear (birthDate){
+            if(typeof(+birthDate) === 'number' && +birthDate == birthDate) {
+               messageYear = `Ваш вік - ${2023 - birthDate}.`; 
+            } 
+        };
+
+        function getResponceForCIty (city){
+            switch (city) {
+                case 'Київ': 
+                    messagePlace = `Ти живеш у столиці України`;
+                    break;
+                case 'Вашингтон':
+                    messagePlace = `Ти живеш у столиці США`;
+                    break;
+                case 'Лондон':
+                    messagePlace = `Ти живеш у столиці Британії`;
+                    break;
+                case null: 
+                    alert(`Шкода, що Ви не захотіли ввести своє місто проживання.`);
+                    break;
+                default:
+                    messagePlace = `Ти живеш у місті ${placeOfLeaving}`
+            }
+        };
+
+        function getResponceForSport (sport) {
+            switch (sport) {
+                case 'бокс':
+                    messageSport = `Круто! Хочеш стати Олександром Усиком?`;
+                    break;
+                case 'ЮФС': 
+                    messageSport `Круто! Хочеш стати Ізраелем Адесанья?`;
+                    break;
+                case 'теніс': 
+                    messageSport `Круто! Хочеш стати Роджером Федерером?`;
+                    break;
+                case null: 
+                    alert(`Шкода, що Ви не захотіли ввести свій улюблений вид спорту.`);
+                    break;
+                default:
+                    messageSport `Круто!`;
             }
         }
 
-        function showResponce(year, place, sport) {
-
+        function showMainResponce(year, place, sport) {
+            if (birthDate && placeOfLeaving && favouriteSport ) {
+                alert(`${messageYear} 
+${messagePlace}
+${messageSport}`)
+            }
         }
+
+        showMainResponce(birthDate, placeOfLeaving, favouriteSport);
     </script>
 </body>
 </html>
