@@ -7,37 +7,21 @@
     <title>Hello</title>
 </head>
 <body>
-    <!--<script>
-       let name = prompt('What is your name?');
-       let feelings = confirm(`Hello, ${name}!
-Are you feeling good?`)
-        if (feelings) {
-            alert(`Great, ${name}!
-Glad to hear this!`)
-        } else if (!feelings) {
-            alert(`Ough! 
-It's sad to hear that. 
-Hopefully, it won't be for long`)
-        }
-    </script>-->
     <script>
-        let num1 = prompt('What is your first number?');
-        let operation = prompt('What do you want to do with it?');
-        let num2 = prompt('What is your second number?');
-        if(typeof(+num1) === 'number' && typeof(+num2) === 'number' && +num1 == num1 && +num2 == num2) {
-            if(operation == '+') {
-                alert (`${num1} + ${num2} = ${+num1 + +num2}`)
-            } else if (operation == '-') {
-                alert (`${num1} - ${num2} = ${+num1 - +num2}`)
-            } else if (operation == '*') {
-                alert (`${num1} * ${num2} = ${+num1 * +num2}`)
-            } else if (operation == '/') {
-                alert (`${num1} / ${num2} = ${+num1 / +num2}`)
-            } else {
-                alert("Write it correctly!");
+        let birthDate = prompt ('В якому році Ви народилися?'),
+            placeOfLeaving = prompt ('В якому місті Ви живете?'),
+            favouriteSport = prompt ('Який Ваш улюблений спорт?');
+
+        let messageYear, messagePlace, messageSport;
+
+        function getResponceForYear (){
+            if(birthDate) {
+                
             }
-        } else {
-            alert("Write it correctly!");
+        }
+
+        function showResponce(year, place, sport) {
+
         }
     </script>
 </body>
