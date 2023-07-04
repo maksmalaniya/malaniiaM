@@ -52,9 +52,6 @@
                 case 'Лондон':
                     messagePlace = `Ти живеш у столиці Британії`;
                     break;
-                case null: 
-                    alert(`Шкода, що Ви не захотіли ввести своє місто проживання.`);
-                    break;
                 default:
                     messagePlace = `Ти живеш у місті ${placeOfLeaving}`
             }
@@ -66,21 +63,19 @@
                     messageSport = `Круто! Хочеш стати Олександром Усиком?`;
                     break;
                 case 'ЮФС': 
-                    messageSport `Круто! Хочеш стати Ізраелем Адесанья?`;
+                    messageSport = `Круто! Хочеш стати Ізраелем Адесанья?`;
                     break;
                 case 'теніс': 
-                    messageSport `Круто! Хочеш стати Роджером Федерером?`;
-                    break;
-                case null: 
-                    alert(`Шкода, що Ви не захотіли ввести свій улюблений вид спорту.`);
+                    messageSport = `Круто! Хочеш стати Роджером Федерером?`;
                     break;
                 default:
-                    messageSport `Круто!`;
+                    messageSport = `Круто!`;
+                    break;
             }
         }
 
         function showMainResponce(year, place, sport) {
-            if (birthDate && placeOfLeaving && favouriteSport ) {
+            if (year && place && sport ) {
                 alert(`${messageYear} 
 ${messagePlace}
 ${messageSport}`)
