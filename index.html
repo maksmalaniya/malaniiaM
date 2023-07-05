@@ -30,23 +30,19 @@
         function returnB() {
             let getNumber = prompt(`a = ${a}
 Введить b`);
-            if (typeof(+getNumber) === 'number' && +getNumber == getNumber) {
+            if (typeof(+getNumber) === 'number' && +getNumber == getNumber && getNumber !== '') {
                 b = getNumber;
                 return b;
-            } //else if (b === undefined) {
-                //alert("Жаль. Сподіваюсь ще побачитись")
-            //}
+            } 
         };
 
         function returnC() {
             let getNumber = prompt(`a = ${a}, b = ${b}
 Введить c`);
-            if (typeof(+getNumber) === 'number' && +getNumber == getNumber) {
+            if (typeof(+getNumber) === 'number' && +getNumber == getNumber && getNumber !== '') {
                 c = getNumber;
                 return c;
-            } //else if (c === undefined) {
-                //alert("Жаль. Сподіваюсь ще побачитись")
-            //}
+            } 
         };
         
         function returnD() {
