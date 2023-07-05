@@ -11,12 +11,15 @@
         let a,
         b,
         c,
-        d;
+        d,
+        x,
+        x1,
+        x2;
 
         function returnA() {
             let getNumber = prompt(`Будемо знаходить рішення квадратного рівняння виду: ax^2 + bx + c = 0
 Введіть a`);
-            if (typeof(+getNumber) === 'number' && +getNumber == getNumber) {
+            if (typeof(+getNumber) === 'number' && +getNumber == getNumber && getNumber !== '') {
                 a = getNumber;
             } else {
                 alert("Введить a");
@@ -51,18 +54,42 @@
             return d;
         }
 
-        (squareEquation() {
-            returnA();
-            returnb();
-            returnC();
-            returnD();
+        function returnResult(a, b, c, d) {
+            if (d === 0) {
+                x = (b * -1)/a*2;
+                return x;
+            } else if (d > 0) {
+                x1 = (b * -1)+Math.sqrt(d)/a*2;
+                x2 = (b * -1)-Math.sqrt(d)/a*2;
+                return [x1, x2];
+            };
+        }
 
-            if (a === 0) {
-                alert("a = 0. Рівняння не має рішень");
-            } else if () {
-                
+        function squareEquation() {
+            returnA();
+            returnB();
+            if (b === undefined) {
+                alert("Жаль. Сподіваюсь ще побачитись");
+                return;
             }
-        })(a, b, c);
+            returnC();
+            if (c === undefined) {
+                alert("Жаль. Сподіваюсь ще побачитись");
+                return;
+            }
+            returnD();
+            if (a == 0) {
+                alert("a = 0. Рівняння не має рішень");
+            } else if (d < 0) {
+                alert("D < 0. Рівняння не має рішень");
+            } else if (d == 0) {
+                alert(`D = 0. Єдиний корень рівняння: ${returnResult(a, b, c, d)}`)
+            } else if (d > 0) {
+                alert(`D > 0. Корені рівняння: ${returnResult(a, b, c, d)}`)
+            }
+        }
+
+        squareEquation();
     </script>
 </body>
 </html>
