@@ -8,7 +8,61 @@
 </head>
 <body>
     <script>
+        let a,
+        b,
+        c,
+        d;
+
+        function returnA() {
+            let getNumber = prompt(`Будемо знаходить рішення квадратного рівняння виду: ax^2 + bx + c = 0
+Введіть a`);
+            if (typeof(+getNumber) === 'number' && +getNumber == getNumber) {
+                a = getNumber;
+            } else {
+                alert("Введить a");
+                returnA();
+            }
+        };
+
+        function returnB() {
+            let getNumber = prompt(`a = ${a}
+Введить b`);
+            if (typeof(+getNumber) === 'number' && +getNumber == getNumber) {
+                b = getNumber;
+                return b;
+            } //else if (b === undefined) {
+                //alert("Жаль. Сподіваюсь ще побачитись")
+            //}
+        };
+
+        function returnC() {
+            let getNumber = prompt(`a = ${a}, b = ${b}
+Введить c`);
+            if (typeof(+getNumber) === 'number' && +getNumber == getNumber) {
+                c = getNumber;
+                return c;
+            } //else if (c === undefined) {
+                //alert("Жаль. Сподіваюсь ще побачитись")
+            //}
+        };
         
+        function returnD() {
+            d = b * b - 4 * a * c;
+            return d;
+        }
+
+        (squareEquation() {
+            returnA();
+            returnb();
+            returnC();
+            returnD();
+
+            if (a === 0) {
+                alert("a = 0. Рівняння не має рішень");
+            } else if () {
+                
+            }
+        })(a, b, c);
     </script>
 </body>
 </html>
