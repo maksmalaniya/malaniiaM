@@ -19,7 +19,7 @@
         function returnA() {
             let getNumber = prompt(`Будемо знаходить рішення квадратного рівняння виду: ax^2 + bx + c = 0
 Введіть a`);
-            if (typeof(+getNumber) === 'number' && +getNumber == getNumber && getNumber !== '') {
+            if (typeof(+getNumber) === 'number' && +getNumber == getNumber && getNumber !== '' && getNumber !== ' ') {
                 a = getNumber;
             } else {
                 alert("Введить a");
@@ -30,39 +30,49 @@
         function returnB() {
             let getNumber = prompt(`a = ${a}
 Введить b`);
-            if (typeof(+getNumber) === 'number' && +getNumber == getNumber && getNumber !== '') {
+            if (typeof(+getNumber) === 'number' && +getNumber == getNumber && getNumber !== '' && getNumber !== ' ') {
                 b = getNumber;
                 return b;
-            } 
+            } else{
+                alert("Введить b");
+                returnB();
+            }
         };
 
         function returnC() {
             let getNumber = prompt(`a = ${a}, b = ${b}
 Введить c`);
-            if (typeof(+getNumber) === 'number' && +getNumber == getNumber && getNumber !== '') {
+            if (typeof(+getNumber) === 'number' && +getNumber == getNumber && getNumber !== '' && getNumber !== ' ') {
                 c = getNumber;
                 return c;
-            } 
+            } else{
+                alert("Введить c");
+                returnC();
+            }
         };
         
         function returnD() {
-            d = b * b - 4 * a * c;
+            d = (b * b)- (4 * a * c);
             return d;
         }
 
         function returnResult(a, b, c, d) {
             if (d === 0) {
-                x = (b * -1)/a*2;
+                x = (b * -1)/(a*2);
                 return x;
             } else if (d > 0) {
-                x1 = (b * -1)+Math.sqrt(d)/a*2;
-                x2 = (b * -1)-Math.sqrt(d)/a*2;
+                x1 = ((b * -1)+Math.sqrt(d))/a*2;
+                x2 = ((b * -1)-Math.sqrt(d))/a*2;
                 return [x1, x2];
             };
         }
 
         function squareEquation() {
             returnA();
+            if (a === undefined) {
+                alert("Жаль. Сподіваюсь ще побачитись");
+                return;
+            }
             returnB();
             if (b === undefined) {
                 alert("Жаль. Сподіваюсь ще побачитись");
