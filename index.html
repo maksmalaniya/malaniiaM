@@ -16,11 +16,19 @@
         x1,
         x2;
 
+        // функция  проверка на число
+
+        function isNumber (num) {
+            if (typeof(+num) === 'number' && +num == num && num !== '' && num !== ' ') {
+                return num;
+            }
+        };
+
         function returnA() {
             let getNumber = prompt(`Будемо знаходить рішення квадратного рівняння виду: ax^2 + bx + c = 0
 Введіть a`);
-            if (typeof(+getNumber) === 'number' && +getNumber == getNumber && getNumber !== '' && getNumber !== ' ') {
-                a = getNumber;
+            if (/*typeof(+getNumber) === 'number' && +getNumber == getNumber && getNumber !== '' && getNumber !== ' '*/ isNumber(getNumber)) {
+                a = +getNumber;
             } else {
                 alert("Введить a");
                 returnA();
@@ -30,8 +38,8 @@
         function returnB() {
             let getNumber = prompt(`a = ${a}
 Введить b`);
-            if (typeof(+getNumber) === 'number' && +getNumber == getNumber && getNumber !== '' && getNumber !== ' ') {
-                b = getNumber;
+            if (/*typeof(+getNumber) === 'number' && +getNumber == getNumber && getNumber !== '' && getNumber !== ' '*/ isNumber(getNumber)) {
+                b = +getNumber;
                 return b;
             } else{
                 alert("Введить b");
@@ -42,17 +50,26 @@
         function returnC() {
             let getNumber = prompt(`a = ${a}, b = ${b}
 Введить c`);
-            if (typeof(+getNumber) === 'number' && +getNumber == getNumber && getNumber !== '' && getNumber !== ' ') {
-                c = getNumber;
+            if (/*typeof(+getNumber) === 'number' && +getNumber == getNumber && getNumber !== '' && getNumber !== ' '*/ isNumber(getNumber)) {
+                c = +getNumber;
                 return c;
             } else{
                 alert("Введить c");
                 returnC();
             }
         };
+
+        // Всі запити до користувача (виклики prompt) мають виконуватись функцією, з п.1 
+
+        function getNumbersToEquation() {
+        returnA();
+        returnB();
+        returnC();
+        }
+
         
         function returnD() {
-            d = (b * b)- (4 * a * c);
+            d = (b * b) - (4 * a * c);
             return d;
         }
 
@@ -61,14 +78,14 @@
                 x = (b * -1)/(a*2);
                 return x;
             } else if (d > 0) {
-                x1 = ((b * -1)+Math.sqrt(d))/a*2;
-                x2 = ((b * -1)-Math.sqrt(d))/a*2;
+                x1 = ((b * -1)+Math.sqrt(d))/(a*2);
+                x2 = ((b * -1)-Math.sqrt(d))/(a*2);
                 return [x1, x2];
             };
         }
 
         function squareEquation() {
-            returnA();
+            /*returnA();
             if (a === undefined) {
                 alert("Жаль. Сподіваюсь ще побачитись");
                 return;
@@ -82,7 +99,9 @@
             if (c === undefined) {
                 alert("Жаль. Сподіваюсь ще побачитись");
                 return;
-            }
+            }*/
+
+            getNumbersToEquation();
             returnD();
             if (a == 0) {
                 alert("a = 0. Рівняння не має рішень");
