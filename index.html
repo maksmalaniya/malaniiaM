@@ -8,8 +8,31 @@
 </head>
 <body>
     <script>
-       
+       let arrayLength = +prompt('Введіть бажану довжину масиву числом');
+       let arr = [];
 
+        (function allArrayElements() {
+            while(arr.length < arrayLength){
+                arr.push(+prompt('Введіть число до масиву'))
+                alert(`Ваш масив зараз виглядає так: '${arr.join(', ')}'`)
+            }
+            arr.sort((a, b) => a - b);
+            alert(`Результат Вaшого масиву: '${arr.join(', ')}'`)
+        })();
+
+        let num = +prompt('Введіть число яке бажаєте видалити');
+        
+        (function removeAllNums(arr, num){
+            num = num;
+            arr = arr;
+            for(let i = 0; i < arr.length; i++) {
+                if (arr[i] === num) {
+                    arr.splice(i, 1);
+                    i--;
+                }
+            }
+            alert(`Результат Вaшого масиву: '${arr.join(', ')}'`)
+        })(arr, num);
     </script>
 </body>
 </html>
