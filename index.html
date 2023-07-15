@@ -8,7 +8,23 @@
 </head>
 <body>
     <script>
-       
+       let arrayLength = +prompt('Введіть бажану довжину масиву числом');
+       let arr = [];
+        (function allArrayElements() {
+            while(arr.length < arrayLength){
+                arr.push(+prompt('Введіть число до масиву'))
+                alert(`Ваш масив зараз виглядає так: '${arr.join(', ')}'`)
+            }
+            arr.sort((a, b) => a - b);
+            //debugger;
+            for(let i = 0; i < arr.length; i++) {
+                if (arr[i] >=2 && arr[i] <= 4) {
+                    arr.splice(i, 1);
+                    i--;
+                }
+            }
+            alert(`Результат Вaшого масиву: '${arr.join(', ')}'`)
+        })()
 
     </script>
 </body>
