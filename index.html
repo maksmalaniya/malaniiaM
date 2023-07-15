@@ -11,10 +11,7 @@
         let a,
         b,
         c,
-        d,
-        x,
-        x1,
-        x2;
+        d;
 
         // функция  проверка на число
 
@@ -27,7 +24,7 @@
         function returnA() {
             let getNumber = prompt(`Будемо знаходить рішення квадратного рівняння виду: ax^2 + bx + c = 0
 Введіть a`);
-            if (/*typeof(+getNumber) === 'number' && +getNumber == getNumber && getNumber !== '' && getNumber !== ' '*/ isNumber(getNumber)) {
+            if (isNumber(getNumber)) {
                 a = +getNumber;
             } else {
                 alert("Введить a");
@@ -38,7 +35,7 @@
         function returnB() {
             let getNumber = prompt(`a = ${a}
 Введить b`);
-            if (/*typeof(+getNumber) === 'number' && +getNumber == getNumber && getNumber !== '' && getNumber !== ' '*/ isNumber(getNumber)) {
+            if (isNumber(getNumber)) {
                 b = +getNumber;
                 return b;
             } else{
@@ -50,7 +47,7 @@
         function returnC() {
             let getNumber = prompt(`a = ${a}, b = ${b}
 Введить c`);
-            if (/*typeof(+getNumber) === 'number' && +getNumber == getNumber && getNumber !== '' && getNumber !== ' '*/ isNumber(getNumber)) {
+            if (isNumber(getNumber)) {
                 c = +getNumber;
                 return c;
             } else{
@@ -73,32 +70,30 @@
             return d;
         }
 
-        function returnResult(a, b, c, d) {
-            if (d === 0) {
-                x = (b * -1)/(a*2);
-                return x;
-            } else if (d > 0) {
-                x1 = ((b * -1)+Math.sqrt(d))/(a*2);
-                x2 = ((b * -1)-Math.sqrt(d))/(a*2);
-                return [x1, x2];
-            };
+        function ifInvalid() {
+                alert('a = 0. Рівняння не має рішень');
         }
 
-        function squareEquation() {
-            getNumbersToEquation();
-            returnD();
+        function returnResult(a, b, c, ifInvalid) {
+            returnD()
             if (a == 0) {
-                alert("a = 0. Рівняння не має рішень");
+                ifInvalid();
+            } else if (d === 0) {
+                let x = (b * -1)/(a*2);
+                alert(`D = 0. Єдиний корень рівняння: ${x}`);
             } else if (d < 0) {
                 alert("D < 0. Рівняння не має рішень");
-            } else if (d == 0) {
-                alert(`D = 0. Єдиний корень рівняння: ${returnResult(a, b, c, d)}`)
             } else if (d > 0) {
-                alert(`D > 0. Корені рівняння: ${returnResult(a, b, c, d)}`)
-            }
+                let x1 = ((b * -1)+Math.sqrt(d))/(a*2);
+                let x2 = ((b * -1)-Math.sqrt(d))/(a*2);
+                alert(`D > 0. Корені рівняння: ${x1}, ${x2}`)
+            } 
         }
 
-        squareEquation();
+        (function squareEquation() {
+            getNumbersToEquation();
+            returnResult(a, b, c, ifInvalid);
+        })();
     </script>
 </body>
 </html>
