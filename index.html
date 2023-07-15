@@ -53,7 +53,7 @@
                     messagePlace = `Ти живеш у столиці Британії`;
                     break;
                 default:
-                    messagePlace = `Ти живеш у місті ${placeOfLeaving}`
+                    messagePlace = `Ти живеш у місті ${city}`
             }
         };
 
@@ -79,7 +79,20 @@
                 alert(`${messageYear} 
 ${messagePlace}
 ${messageSport}`)
-            }
+            } else if (year === null) {
+               if(place === null) {
+                    alert(`${messageSport}`)
+               } else if (sport === null) {
+                    alert(`${messagePlace}`)
+               } else{
+                alert(`${messagePlace}
+${messageSport}`)
+               }
+            } else if (place === null) {alert(`${messageYear}
+${messageSport}`)
+            } else if (sport === null) {alert(`${messageYear} 
+${messagePlace}`)
+            }  
         }
 
         showMainResponce(birthDate, placeOfLeaving, favouriteSport);
