@@ -8,7 +8,15 @@
 </head>
 <body>
     <script>
-    
+        const characters = 'abcdefghijklmnopqrstuvwxyz0123456789';
+        let generateKey = function(length, characters){
+            let key = '';
+            while (length > 0){
+                key = key + characters[Math.floor(Math.random() * characters.length)];
+                length--;
+            }
+            return key;
+        }
     </script>
 </body>
 </html>
