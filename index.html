@@ -64,19 +64,31 @@
 "address": "314 Dunne Place, Bawcomville, Guam, 9053"
 }
 ]
+
+
+    let showSums = function(inArray, sum){
+        let allBalances = {};
+        allBalances.sumOfAllUsersBalances = sum;
+        return allBalances;
+    };
+    
     let getArrayOfNumber = function(inArray){
         let resultArray = [];
+        let countSums = 0;
             for(let i = 0; i < inArray.length; i++) {
                 if (inArray[i].balance) {
-                    let num = inArray[i].balance.replace("$", "").replace(",", "");
+                    let num = inArray[i].balance.replace("$", "").replaceAll(",", "");
+                    countSums += +num;
                     if (+num >= 2000) {
                         resultArray.push(inArray[i].phone)
                     }
                 };
             }
+        resultArray.push(showSums(inArray, countSums));
         return resultArray;
-    }        
-    getArrayOfNumber(users); 
+    };
+
+    getArrayOfNumber(users);
     
     </script>
 </body>
