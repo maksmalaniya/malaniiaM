@@ -9,7 +9,6 @@
 <body>
     <script>
         function validateNumber(num){
-            num = num.toString()
 
         let getArray = function(number){
             let array;
@@ -51,6 +50,9 @@
         };
     
         let arrayWithNumber = getArray(num);
+        if(getArray(num) == undefined){
+            return null;
+        }
         let arrayOfSymbols = arrayTransform(arrayWithNumber);
         let arrayWithDeletedSymbols = deleteSymbols(arrayOfSymbols);
         let newNumber = creasteNumber(arrayWithDeletedSymbols);
