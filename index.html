@@ -8,7 +8,55 @@
 </head>
 <body>
     <script>
-        
+        function validateNumber(num){
+            num = num.toString()
+
+        let getArray = function(number){
+            let array;
+                if(number.match(/\+*\d{3}[\s-]\d{2}[\s-]\d{3}[\s-]\d{2}[\s-]\d{2}/g) !== null) {
+                    array = number.match(/\+*\d{3}[\s-]\d{2}[\s-]\d{3}[\s-]\d{2}[\s-]\d{2}/g);
+                };
+            return array;
+        }
+
+        let arrayTransform = function(array){
+            let str = array[0].toString();
+            let arr = [];
+                for (let i = 0; i < str.length; i++){
+                    arr.push(str[i]);
+                }
+            return arr;
+        };
+
+        let deleteSymbols = function(arr){
+            if(arr[0] === '+'){
+                arr.shift();
+                arr.shift();
+                arr.shift();
+            } else {
+                arr.shift();
+                arr.shift();
+            }
+            return arr;
+        };
+
+        creasteNumber = function(arr){
+            let str = '';
+            for (let i = 0; i < arr.length; i++) {
+                if(arr[i] !== ' ' && arr[i] !== '-'){
+                    str = str + arr[i];
+                }
+            }
+            return str;
+        };
+    
+        let arrayWithNumber = getArray(num);
+        let arrayOfSymbols = arrayTransform(arrayWithNumber);
+        let arrayWithDeletedSymbols = deleteSymbols(arrayOfSymbols);
+        let newNumber = creasteNumber(arrayWithDeletedSymbols);
+
+        return newNumber;
+    };
     </script>
 </body>
 </html>
